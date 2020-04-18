@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+    <div class="list-group">
+        <ul>
+            <li class="list-group-item list-group-item-dark">サンプル</li>
+            <li class="list-group-item"><a asp-action="DoGetWithQuery">クエリ文字列を指定してGET実行</a></li>
+            <li class="list-group-item"><a asp-action="DoGetWithHeader">HTTPヘッダを指定してGET実行</a></li>
+            <li class="list-group-item"><a asp-action="DoPostAsForm">フォーム形式によるPOST実行</a></li>
+            <li class="list-group-item"><a asp-action="DoPostAsMultipart">マルチパートフォーム形式によるPOST実行</a></li>
+        </ul>
+        <ul>
+            <li class="list-group-item list-group-item-dark">サンプル(その他)</li>
+            <li class="list-group-item"><a asp-action="DoBasicGet">GetAsyncによるGET</a></li>
+            <li class="list-group-item"><a asp-action="DoGenericGet">SendAsyncによるGET</a></li>
+            <li class="list-group-item"><a asp-action="DoBasicPost">PostAsyncによるPOST</a></li>
+            <li class="list-group-item"><a asp-action="DoGenericPost">SendAsyncによるPOST</a></li>
+            <li class="list-group-item"><a asp-action="DoCheckContentType">ContentType確認</a></li>
+            <li class="list-group-item"><a asp-action="DoBypassSSLValidation">SSL検証バイパス(SSLエラー無視)</a></li>
+        </ul>
+    </div>
+
