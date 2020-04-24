@@ -262,6 +262,19 @@ namespace HttpClientTest.Controllers
             return Ok("ok!");
         }
 
+        public async Task<IActionResult> DoGetViaProxy()
+        {
+            HttpClient client = _factory.CreateClient("proxy");
+            HttpResponseMessage response = await client.GetAsync("http://www.yahoo.co.jp");
+            if (response.IsSuccessStatusCode)
+            {
+                // ...
+            }
+
+            string recv = await response.Content.ReadAsStringAsync();
+            return Content(recv);
+        }
+
         public async Task<IActionResult> DoBypassSSLValidation()
         {
             var request = new HttpRequestMessage(

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -54,6 +55,18 @@ namespace HttpClientTest
             });
             //.AddHttpMessageHandler<HttpTraceHandler>();
 
+            // プロキシ
+            // .NET Core 2.1 以降の既定のメッセージハンドラであるSocketsHttpHandlerで
+            // プロキシの設定を行う。
+            // (それ以前のHttpClientHandlerより高性能でプラットフォーム非依存)
+            services.AddHttpClient("proxy")
+                .ConfigurePrimaryHttpMessageHandler(() =>
+                new SocketsHttpHandler
+                {
+                    UseProxy = true,
+                    Proxy = new WebProxy("localhost", 8888)
+                }
+            );
 
             // SSLエラー無視サンプル
 #if false
