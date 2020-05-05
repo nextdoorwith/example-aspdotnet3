@@ -1,0 +1,174 @@
+﻿@model PersonDetail
+
+<div class="">
+
+    <form asp-action="Regist">
+
+        <h1>バリデーションテスト</h1>
+        <p />
+        <div class="form-group row">
+            <div class="col-sm-3">
+                <span class="badge badge-danger mr-2">必須</span>
+                <label class="col-form-label">お名前</label>
+            </div>
+            <div class="col-sm-1">
+                <label asp-for="Sei" class="col-form-label pr-2">姓</label>
+            </div>
+            <div class="col-sm-3">
+                <input asp-for="Sei" type="text" class="form-control" placeholder="山田" />
+                <span asp-validation-for="Sei" class="text-danger"></span>
+            </div>
+            <div class="col-sm-1">
+                <label asp-for="Mei" class="col-form-label pr-2">名</label>
+            </div>
+            <div class="col-sm-3">
+                <input asp-for="Mei" type="text" class="form-control" placeholder="太郎" />
+                <span asp-validation-for="Mei" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-3">
+                <span class="badge badge-secondary mr-2">任意</span>
+                <label class="col-form-label">お名前（カタカナ）</label>
+            </div>
+            <div class="col-sm-1">
+                <label asp-for="SeiKana" class="col-form-label pr-2">セイ</label>
+            </div>
+            <div class="col-sm-3">
+                <input asp-for="SeiKana" type="text" class="form-control" placeholder="ヤマダ" />
+                <span asp-validation-for="SeiKana" class="text-danger"></span>
+            </div>
+            <div class="col-sm-1">
+                <label asp-for="MeiKana" class="col-form-label pr-2">メイ</label>
+            </div>
+            <div class="col-sm-3">
+                <input asp-for="MeiKana" type="text" class="form-control" placeholder="タロウ" />
+                <span asp-validation-for="MeiKana" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-3">
+                <span class="badge badge-secondary mr-2">任意</span>
+                <label asp-for="Gender" class="col-form-label">性別</label>
+            </div>
+            <div class="col-sm-9 form-inline">
+                <div class="form-check">
+                    <input asp-for="Gender" type="radio" value="1" class="form-control" />
+                    <label class="ml-2 form-check-label" asp-for="Gender">男性</label>
+                </div>
+                <div class="ml-4 form-check">
+                    <input asp-for="Gender" type="radio" value="2" class="form-control" />
+                    <label class="ml-2 form-check-label" asp-for="Gender">女性</label>
+                </div>
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-3">
+                <span class="badge badge-danger mr-2">必須</span>
+                <label asp-for="BirthDay" class="col-form-label">生年月日</label>
+            </div>
+            <div class="col-sm-4">
+                <input asp-for="BirthDay" type="text" class="form-control" />
+                <span asp-validation-for="BirthDay" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-3">
+                <span class="badge badge-secondary mr-2">任意</span>
+                <label asp-for="Tel" class="col-form-label">電話番号</label>
+            </div>
+            <div class="col-sm-4">
+                <input asp-for="Tel" type="text" class="form-control" />
+                <span asp-validation-for="Tel" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-3">
+                <span class="badge badge-danger mr-2">必須</span>
+                <label asp-for="Mobile" class="col-form-label">電話番号（携帯）</label>
+            </div>
+            <div class="col-sm-4">
+                <input asp-for="Mobile" type="text" class="form-control" />
+                <span asp-validation-for="Mobile" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-3">
+                <span class="badge badge-danger mr-2">必須</span>
+                <label asp-for="PostalCode" class="col-form-label">郵便番号</label>
+            </div>
+            <div class="col-sm-4">
+                <input asp-for="PostalCode" type="text" class="form-control" />
+                <span asp-validation-for="PostalCode" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-3">
+                <span class="badge badge-secondary mr-2">任意</span>
+                <label asp-for="Prefectures" class="col-form-label">住所（都道府県）</label>
+            </div>
+            <div class="col-sm-4">
+                <input asp-for="Prefectures" type="text" class="form-control" />
+                <span asp-validation-for="Prefectures" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-3">
+                <span class="badge badge-secondary mr-2">任意</span>
+                <label asp-for="Address1" class="col-form-label">住所（市区町村）</label>
+            </div>
+            <div class="col-sm-9">
+                <input asp-for="Address1" type="text" class="form-control" />
+                <span asp-validation-for="Address1" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-3">
+                <span class="badge badge-secondary mr-2">任意</span>
+                <label asp-for="Address2" class="col-form-label">住所（それ以降）</label>
+            </div>
+            <div class="col-sm-9">
+                <input asp-for="Address2" type="text" class="form-control" />
+                <span asp-validation-for="Address2" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-3">
+                <span class="badge badge-secondary mr-2">任意</span>
+                <label asp-for="AnnualIncome" class="col-form-label">年収</label>
+            </div>
+            <div class="col-sm-4">
+                <input asp-for="AnnualIncome" type="text" class="form-control" />
+                <span asp-validation-for="AnnualIncome" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-3">
+                <span class="badge badge-secondary mr-2">任意</span>
+                <label asp-for="Note" class="col-form-label">メモ</label>
+            </div>
+            <div class="col-sm-9">
+                <textarea asp-for="Note" class="form-control" rows="5" ></textarea>
+                <span asp-validation-for="Note" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-12">
+                <button type="submit" class="btn btn-primary">登録</button>
+            </div>
+        </div>
+
+    </form>
+</div>

@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ExampleWeb</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    @RenderSection("HeadOptions", required: false)
+</head>
+<body>
+    <div id="wrapper">
+
+        <!-- サイドバーメニュー -->
+        <nav id="sidebar" class="bg-dark text-light">
+            <div class="sidebar-header">
+                <h3>サンプル</h3>
+            </div>
+            <ul class="list-unstyled">
+                <li class="active">
+                    <p>基本</p>
+                    <ul class="list-unstyled" id="homeSubmenu">
+                        <li><a asp-controller="ValidateBasic" asp-action="Index" class="text-light">入力検証</a></li>
+                        <li><a asp-controller="ValidateMany" asp-action="Index" class="text-light">入力検証</a></li>
+                        <li><a asp-controller="Upload" asp-action="Index" class="text-light">アップロード</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- コンテンツ -->
+        <div id="main" class="container-fluid">
+            <main role="main" class=" pb-3">
+                @RenderBody()
+            </main>
+        </div>
+
+    </div>
+
+
+    <!-- enable fundamentals -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- site local -->
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

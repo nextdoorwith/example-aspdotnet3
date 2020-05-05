@@ -1,0 +1,140 @@
+﻿@model ValidateBasicModel
+
+@section HeadOptions {
+    <style type="text/css">
+        .desc {
+            font-size: 0.6em;
+        }
+    </style>
+}
+
+<div>
+    <form asp-action="Regist">
+
+        <h1>バリデーションテスト</h1>
+
+        <p />
+
+        <div class="form-group row">
+            <label asp-for="CreditCardItem" class="col-sm-2 col-form-label">クレジットカード</label>
+            <div class="col-sm-10">
+                <input asp-for="CreditCardItem" type="text" class="form-control" />
+                <span asp-validation-for="CreditCardItem" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="CompareItem" class="col-sm-2 col-form-label">比較</label>
+            <div class="col-sm-10">
+                <input asp-for="CompareItem" type="text" class="form-control" />
+                <span asp-validation-for="CompareItem" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="CompareItem2" class="col-sm-2 col-form-label">比較(2)</label>
+            <div class="col-sm-10">
+                <input asp-for="CompareItem2" type="text" class="form-control" />
+                <span asp-validation-for="CompareItem2" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="EmailAddressItem" class="col-sm-2 col-form-label">メールアドレス</label>
+            <div class="col-sm-10">
+                <input asp-for="EmailAddressItem" type="text" class="form-control" />
+                <span asp-validation-for="EmailAddressItem" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label asp-for="PhoneItem" class="col-sm-2 col-form-label">電話番号</label>
+            <div class="col-sm-10">
+                <input asp-for="PhoneItem" type="text" class="form-control" />
+                <span asp-validation-for="PhoneItem" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="RangeItem" class="col-sm-2 col-form-label">範囲</label>
+            <div class="col-sm-10">
+                <input asp-for="RangeItem" type="text" class="form-control" />
+                <span asp-validation-for="RangeItem" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="RangeDateItem" class="col-sm-2 col-form-label">範囲(日付)</label>
+            <div class="col-sm-10">
+                <input asp-for="RangeDateItem" type="text" class="form-control" />
+                <span asp-validation-for="RangeDateItem" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="RegularExpressionItem" class="col-sm-2 col-form-label">正規表現</label>
+            <div class="col-sm-10">
+                <input asp-for="RegularExpressionItem" type="text" class="form-control" />
+                <span asp-validation-for="RegularExpressionItem" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="RegularExpressionItem2" class="col-sm-2 col-form-label">
+                正規表現2<br />
+                <span class="desc">(カスタムエラーメッセージ)</span>
+            </label>
+            <div class="col-sm-10">
+                <input asp-for="RegularExpressionItem2" type="text" class="form-control" />
+                <span asp-validation-for="RegularExpressionItem2" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="RequiredItem" class="col-sm-2 col-form-label">必須</label>
+            <div class="col-sm-10">
+                <input asp-for="RequiredItem" type="text" class="form-control" />
+                <span asp-validation-for="RequiredItem" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="StringLengthItem" class="col-sm-2 col-form-label">文字長</label>
+            <div class="col-sm-10">
+                <input asp-for="StringLengthItem" type="text" class="form-control" />
+                <span asp-validation-for="StringLengthItem" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="StringLengthMinItem" class="col-sm-2 col-form-label">文字長(最小あり)</label>
+            <div class="col-sm-10">
+                <input asp-for="StringLengthMinItem" type="text" class="form-control" />
+                <span asp-validation-for="StringLengthMinItem" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="UrlItem" class="col-sm-2 col-form-label">URL</label>
+            <div class="col-sm-10">
+                <input asp-for="UrlItem" type="text" class="form-control" />
+                <span asp-validation-for="UrlItem" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="RemoteItem" class="col-sm-2 col-form-label">リモート</label>
+            <div class="col-sm-10">
+                <input asp-for="RemoteItem" type="text" class="form-control" />
+                <span asp-validation-for="RemoteItem" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row mt-5">
+            <div class="col-sm-12">
+                <button type="submit" class="btn btn-primary mr-3">送信</button>
+                <button type="submit" class="btn btn-primary mr-3 cancel">直接送信(*1)</button>
+                <span>*1: クライアント側検証をスキップして送信</span>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+
+<!-- クライアント側入力検証を有効化 -->
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+
+}
