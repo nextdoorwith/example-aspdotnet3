@@ -1,4 +1,4 @@
-﻿@model PersonDetail
+﻿@model ValidateManyModel
 
 <div class="">
 
@@ -6,6 +6,8 @@
 
         <h1>バリデーションテスト</h1>
         <p />
+        <div class="text-danger" asp-validation-summary="All"></div>
+
         <div class="form-group row">
             <div class="col-sm-3">
                 <span class="badge badge-danger mr-2">必須</span>
@@ -159,7 +161,7 @@
                 <label asp-for="Note" class="col-form-label">メモ</label>
             </div>
             <div class="col-sm-9">
-                <textarea asp-for="Note" class="form-control" rows="5" ></textarea>
+                <textarea asp-for="Note" class="form-control" rows="5"></textarea>
                 <span asp-validation-for="Note" class="text-danger"></span>
             </div>
         </div>
@@ -172,3 +174,10 @@
 
     </form>
 </div>
+
+@*
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+
+    }
+*@

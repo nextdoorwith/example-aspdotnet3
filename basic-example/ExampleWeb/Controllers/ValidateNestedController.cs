@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ExampleWeb.Controllers
 {
-    public class ValidateManyController : Controller
+    public class ValidateNestedController : Controller
     {
 
         public IActionResult Index()
@@ -15,12 +15,12 @@ namespace ExampleWeb.Controllers
             return View();
         }
 
-        public IActionResult Regist(ValidateManyModel personDetail)
+        public IActionResult Regist(ValidateNestedModel model)
         {
             if( !ModelState.IsValid)
             {
                 ModelState.AddModelError("", "エラーがあります。");
-                return View("Index", personDetail);
+                return View("Index", model);
             }
 
             return Ok();

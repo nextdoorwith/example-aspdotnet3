@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ExampleWeb.Models
 {
-    public class UploadTestModel
+    public class UploadModel
     {
 
         [Required]

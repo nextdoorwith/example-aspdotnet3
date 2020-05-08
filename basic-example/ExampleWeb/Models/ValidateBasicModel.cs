@@ -9,6 +9,22 @@ namespace ExampleWeb.Models
 {
     public class ValidateBasicModel
     {
+        [Display(Name = "必須")]
+        [Required]
+        public string RequiredItem { get; set; }
+
+        [Display(Name = "必須(int)")]
+        [Required]
+        public int RequiredIntItem { get; set; }
+
+        [Display(Name = "必須(Decimal)")]
+        [Required]
+        public Decimal RequiredDecimalItem { get; set; }
+
+        [Display(Name = "必須(DateTime)")]
+        [Required]
+        public DateTime RequiredDateTimeItem { get; set; }
+
         [Display(Name = "クレジットカード")]
         [CreditCard]
         public string CreditCardItem { get; set; }
@@ -44,10 +60,6 @@ namespace ExampleWeb.Models
         [Display(Name = "正規表現2")]
         [RegularExpression("A-Z", ErrorMessage = "{0}は大文字アルファベットを指定してください。")]
         public string RegularExpressionItem2 { get; set; }
-
-        [Display(Name = "必須")]
-        [Required]
-        public string RequiredItem { get; set; }
 
         [Display(Name = "文字長")]
         [StringLength(10)]

@@ -63,90 +63,180 @@ namespace ExampleWeb {
         /// <summary>
         ///   {1}では&apos;{0}&apos;は無効な値です。 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        public static string AttemptedValueIsInvalidAccessor {
+        public static string ModelBinding_AttemptedValueIsInvalid {
             get {
-                return ResourceManager.GetString("AttemptedValueIsInvalidAccessor", resourceCulture);
+                return ResourceManager.GetString("ModelBinding_AttemptedValueIsInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   {0}に対する値が指定されていません。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ModelBinding_MissingBindRequiredValue {
+            get {
+                return ResourceManager.GetString("ModelBinding_MissingBindRequiredValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   必須です。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ModelBinding_MissingKeyOrValue {
+            get {
+                return ResourceManager.GetString("ModelBinding_MissingKeyOrValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   要求にボディの指定が必須です。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ModelBinding_MissingRequestBodyRequiredValue {
+            get {
+                return ResourceManager.GetString("ModelBinding_MissingRequestBodyRequiredValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   &apos;{0}&apos;は無効です。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ModelBinding_NonPropertyAttemptedValueIsInvalid {
+            get {
+                return ResourceManager.GetString("ModelBinding_NonPropertyAttemptedValueIsInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   値は無効です。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ModelBinding_NonPropertyUnknownValueIsInvalid {
+            get {
+                return ResourceManager.GetString("ModelBinding_NonPropertyUnknownValueIsInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   数字を指定してください。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ModelBinding_NonPropertyValueMustBeANumber {
+            get {
+                return ResourceManager.GetString("ModelBinding_NonPropertyValueMustBeANumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   {0}の値は無効です。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ModelBinding_UnknownValueIsInvalid {
+            get {
+                return ResourceManager.GetString("ModelBinding_UnknownValueIsInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   &apos;{0}&apos;は無効です。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ModelBinding_ValueIsInvalid {
+            get {
+                return ResourceManager.GetString("ModelBinding_ValueIsInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   {0}は数字を指定してください。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ModelBinding_ValueMustBeANumber {
+            get {
+                return ResourceManager.GetString("ModelBinding_ValueMustBeANumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   &apos;{0}&apos;は無効です。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string ModelBinding_ValueMustNotBeNull {
+            get {
+                return ResourceManager.GetString("ModelBinding_ValueMustNotBeNull", resourceCulture);
             }
         }
         
         /// <summary>
         ///   {0}と{1}が一致しません。 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        public static string CompareAttribute {
+        public static string Validator_CompareAttribute {
             get {
-                return ResourceManager.GetString("CompareAttribute", resourceCulture);
+                return ResourceManager.GetString("Validator_CompareAttribute", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   {0}は正しいカード番号ではありません。 に類似しているローカライズされた文字列を検索します。
+        ///   {0}は有効なカード番号ではありません。 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        public static string CreditCardAttribute {
+        public static string Validator_CreditCardAttribute {
             get {
-                return ResourceManager.GetString("CreditCardAttribute", resourceCulture);
+                return ResourceManager.GetString("Validator_CreditCardAttribute", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   {0}は正しいメールアドレスではありません。 に類似しているローカライズされた文字列を検索します。
+        ///   {0}は有効なメールアドレスではありません。 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        public static string EmailAddressAttribute {
+        public static string Validator_EmailAddressAttribute {
             get {
-                return ResourceManager.GetString("EmailAddressAttribute", resourceCulture);
+                return ResourceManager.GetString("Validator_EmailAddressAttribute", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   {0}は正しい電話番号ではありません。 に類似しているローカライズされた文字列を検索します。
+        ///   {0}は有効な電話番号ではありません。 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        public static string PhoneAttribute {
+        public static string Validator_PhoneAttribute {
             get {
-                return ResourceManager.GetString("PhoneAttribute", resourceCulture);
+                return ResourceManager.GetString("Validator_PhoneAttribute", resourceCulture);
             }
         }
         
         /// <summary>
         ///   {0}は{1}から{2}の範囲で指定してください。 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        public static string RangeAttribute {
+        public static string Validator_RangeAttribute {
             get {
-                return ResourceManager.GetString("RangeAttribute", resourceCulture);
+                return ResourceManager.GetString("Validator_RangeAttribute", resourceCulture);
             }
         }
         
         /// <summary>
         ///   {0}は正規表現&apos;{1}&apos;に一致するように指定してください。 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        public static string RegularExpressionAttribute {
+        public static string Validator_RegularExpressionAttribute {
             get {
-                return ResourceManager.GetString("RegularExpressionAttribute", resourceCulture);
+                return ResourceManager.GetString("Validator_RegularExpressionAttribute", resourceCulture);
             }
         }
         
         /// <summary>
         ///   {0}は必須です。 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        public static string RequiredAttribute {
+        public static string Validator_RequiredAttribute {
             get {
-                return ResourceManager.GetString("RequiredAttribute", resourceCulture);
+                return ResourceManager.GetString("Validator_RequiredAttribute", resourceCulture);
             }
         }
         
         /// <summary>
         ///   {0}は{1}桁以内で指定してください。 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        public static string StringLengthAttribute {
+        public static string Validator_StringLengthAttribute {
             get {
-                return ResourceManager.GetString("StringLengthAttribute", resourceCulture);
+                return ResourceManager.GetString("Validator_StringLengthAttribute", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   {0}は正しいURLではありません。 に類似しているローカライズされた文字列を検索します。
+        ///   {0}は有効なURLではありません。 に類似しているローカライズされた文字列を検索します。
         /// </summary>
-        public static string UrlAttribute {
+        public static string Validator_UrlAttribute {
             get {
-                return ResourceManager.GetString("UrlAttribute", resourceCulture);
+                return ResourceManager.GetString("Validator_UrlAttribute", resourceCulture);
             }
         }
     }

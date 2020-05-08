@@ -10,7 +10,7 @@ namespace ExampleWeb.Models
         Male, Female
     }
 
-    public class PersonDetail
+    public class ValidateManyModel
     {
         [Required]
         [Display(Name ="姓")]

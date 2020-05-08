@@ -117,43 +117,84 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AttemptedValueIsInvalidAccessor" xml:space="preserve">
+  <data name="ModelBinding_AttemptedValueIsInvalid" xml:space="preserve">
     <value>{1}では'{0}'は無効な値です。</value>
+    <comment>The value '{0}' is not valid for {1}.</comment>
   </data>
-  <data name="CompareAttribute" xml:space="preserve">
+  <data name="ModelBinding_MissingBindRequiredValue" xml:space="preserve">
+    <value>{0}に対する値が指定されていません。</value>
+    <comment>A value for the '{0}' parameter or property was not provided.</comment>
+  </data>
+  <data name="ModelBinding_MissingKeyOrValue" xml:space="preserve">
+    <value>必須です。</value>
+    <comment>A value is required.</comment>
+  </data>
+  <data name="ModelBinding_MissingRequestBodyRequiredValue" xml:space="preserve">
+    <value>要求にボディの指定が必須です。</value>
+    <comment>A non-empty request body is required.</comment>
+  </data>
+  <data name="ModelBinding_NonPropertyAttemptedValueIsInvalid" xml:space="preserve">
+    <value>'{0}'は無効です。</value>
+    <comment>The value '{0}' is not valid.</comment>
+  </data>
+  <data name="ModelBinding_NonPropertyUnknownValueIsInvalid" xml:space="preserve">
+    <value>値は無効です。</value>
+    <comment>The supplied value is invalid.</comment>
+  </data>
+  <data name="ModelBinding_NonPropertyValueMustBeANumber" xml:space="preserve">
+    <value>数字を指定してください。</value>
+    <comment>The field must be a number.</comment>
+  </data>
+  <data name="ModelBinding_UnknownValueIsInvalid" xml:space="preserve">
+    <value>{0}の値は無効です。</value>
+    <comment>The supplied value is invalid for {0}.</comment>
+  </data>
+  <data name="ModelBinding_ValueIsInvalid" xml:space="preserve">
+    <value>'{0}'は無効です。</value>
+    <comment>The value '{0}' is invalid.</comment>
+  </data>
+  <data name="ModelBinding_ValueMustBeANumber" xml:space="preserve">
+    <value>{0}は数字を指定してください。</value>
+    <comment>The field {0} must be a number.</comment>
+  </data>
+  <data name="ModelBinding_ValueMustNotBeNull" xml:space="preserve">
+    <value>'{0}'は無効です。</value>
+    <comment>The value '{0}' is invalid.</comment>
+  </data>
+  <data name="Validator_CompareAttribute" xml:space="preserve">
     <value>{0}と{1}が一致しません。</value>
     <comment>'{0}' and '{1}' do not match.</comment>
   </data>
-  <data name="CreditCardAttribute" xml:space="preserve">
-    <value>{0}は正しいカード番号ではありません。</value>
+  <data name="Validator_CreditCardAttribute" xml:space="preserve">
+    <value>{0}は有効なカード番号ではありません。</value>
     <comment>The {0} field is not a valid credit card number.</comment>
   </data>
-  <data name="EmailAddressAttribute" xml:space="preserve">
-    <value>{0}は正しいメールアドレスではありません。</value>
+  <data name="Validator_EmailAddressAttribute" xml:space="preserve">
+    <value>{0}は有効なメールアドレスではありません。</value>
     <comment>The {0} field is not a valid e-mail address.</comment>
   </data>
-  <data name="PhoneAttribute" xml:space="preserve">
-    <value>{0}は正しい電話番号ではありません。</value>
+  <data name="Validator_PhoneAttribute" xml:space="preserve">
+    <value>{0}は有効な電話番号ではありません。</value>
     <comment>The {0} field is not a valid phone number.</comment>
   </data>
-  <data name="RangeAttribute" xml:space="preserve">
+  <data name="Validator_RangeAttribute" xml:space="preserve">
     <value>{0}は{1}から{2}の範囲で指定してください。</value>
     <comment>The field {0} must be between {1} and {2}.</comment>
   </data>
-  <data name="RegularExpressionAttribute" xml:space="preserve">
+  <data name="Validator_RegularExpressionAttribute" xml:space="preserve">
     <value>{0}は正規表現'{1}'に一致するように指定してください。</value>
     <comment>The field {0} must match the regular expression '{1}'.</comment>
   </data>
-  <data name="RequiredAttribute" xml:space="preserve">
+  <data name="Validator_RequiredAttribute" xml:space="preserve">
     <value>{0}は必須です。</value>
     <comment>The {0} field is required.</comment>
   </data>
-  <data name="StringLengthAttribute" xml:space="preserve">
+  <data name="Validator_StringLengthAttribute" xml:space="preserve">
     <value>{0}は{1}桁以内で指定してください。</value>
     <comment>The field {0} must be a string with a maximum length of {1}.</comment>
   </data>
-  <data name="UrlAttribute" xml:space="preserve">
-    <value>{0}は正しいURLではありません。</value>
+  <data name="Validator_UrlAttribute" xml:space="preserve">
+    <value>{0}は有効なURLではありません。</value>
     <comment>The {0} field is not a valid fully-qualified http, https, or ftp URL.</comment>
   </data>
 </root>

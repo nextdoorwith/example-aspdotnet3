@@ -16,6 +16,8 @@ namespace ExampleWeb.Validators
 
     public class CustomValidationMetadataProvider : IValidationMetadataProvider
     {
+        private const string RESOURCE_KEY_PREFIX = "Validator_";
+
         // 既定でメッセージが設定される属性
         private object[,] ent = new object[,]
         {
@@ -93,7 +95,7 @@ namespace ExampleWeb.Validators
 
                 // メッセージが既定のままで対応リソースが定義されている場合、
                 // そのメッセージで上書き
-                string name = type.Name;
+                string name = RESOURCE_KEY_PREFIX + type.Name;
                 string? newMessage = resourceManager.GetString(name);
                 if (newMessage != null)
                 {

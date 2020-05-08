@@ -16,13 +16,40 @@
         <p />
 
         <div class="form-group row">
+            <label asp-for="RequiredItem" class="col-sm-2 col-form-label">必須</label>
+            <div class="col-sm-10">
+                <input asp-for="RequiredItem" type="text" class="form-control" />
+                <span asp-validation-for="RequiredItem" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="RequiredIntItem" class="col-sm-2 col-form-label">必須(int)</label>
+            <div class="col-sm-10">
+                <input asp-for="RequiredIntItem" type="text" class="form-control" />
+                <span asp-validation-for="RequiredIntItem" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="RequiredDecimalItem" class="col-sm-2 col-form-label">必須(Decimal)</label>
+            <div class="col-sm-10">
+                <input asp-for="RequiredDecimalItem" type="text" class="form-control" />
+                <span asp-validation-for="RequiredDecimalItem" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="RequiredDateTimeItem" class="col-sm-2 col-form-label">必須(DateTime)</label>
+            <div class="col-sm-10">
+                <input asp-for="RequiredDateTimeItem" type="text" class="form-control" />
+                <span asp-validation-for="RequiredDateTimeItem" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
             <label asp-for="CreditCardItem" class="col-sm-2 col-form-label">クレジットカード</label>
             <div class="col-sm-10">
                 <input asp-for="CreditCardItem" type="text" class="form-control" />
                 <span asp-validation-for="CreditCardItem" class="text-danger"></span>
             </div>
         </div>
-
         <div class="form-group row">
             <label asp-for="CompareItem" class="col-sm-2 col-form-label">比較</label>
             <div class="col-sm-10">
@@ -30,7 +57,6 @@
                 <span asp-validation-for="CompareItem" class="text-danger"></span>
             </div>
         </div>
-
         <div class="form-group row">
             <label asp-for="CompareItem2" class="col-sm-2 col-form-label">比較(2)</label>
             <div class="col-sm-10">
@@ -38,7 +64,6 @@
                 <span asp-validation-for="CompareItem2" class="text-danger"></span>
             </div>
         </div>
-
         <div class="form-group row">
             <label asp-for="EmailAddressItem" class="col-sm-2 col-form-label">メールアドレス</label>
             <div class="col-sm-10">
@@ -46,7 +71,6 @@
                 <span asp-validation-for="EmailAddressItem" class="text-danger"></span>
             </div>
         </div>
-
         <div class="form-group row">
             <label asp-for="PhoneItem" class="col-sm-2 col-form-label">電話番号</label>
             <div class="col-sm-10">
@@ -83,13 +107,6 @@
             <div class="col-sm-10">
                 <input asp-for="RegularExpressionItem2" type="text" class="form-control" />
                 <span asp-validation-for="RegularExpressionItem2" class="text-danger"></span>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label asp-for="RequiredItem" class="col-sm-2 col-form-label">必須</label>
-            <div class="col-sm-10">
-                <input asp-for="RequiredItem" type="text" class="form-control" />
-                <span asp-validation-for="RequiredItem" class="text-danger"></span>
             </div>
         </div>
         <div class="form-group row">

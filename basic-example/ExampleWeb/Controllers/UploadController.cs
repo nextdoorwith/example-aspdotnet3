@@ -27,7 +27,7 @@ namespace ExampleWeb.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Regist(UploadTestModel uploadTestModel)
+        public async Task<IActionResult> Regist(UploadModel uploadTestModel)
         {
             if (!ModelState.IsValid)
             {
