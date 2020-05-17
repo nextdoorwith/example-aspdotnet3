@@ -1,0 +1,132 @@
+﻿@model ValidateSummaryModel
+
+<div>
+
+    <form asp-action="Regist">
+
+        <h1>バリデーションテスト</h1>
+        <p />
+        <div class="form-group row">
+            <div class="col-sm-6">
+                <div class="text-danger" asp-custom-validation-summary></div>
+            </div>
+            <div class="col-sm-6">
+                <div class="text-danger" asp-validation-summary="All"></div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-3">
+                <label asp-for="prop1" class="col-form-label">項目1</label>
+            </div>
+            <div class="col-sm-4">
+                <input asp-for="prop1" type="text" class="form-control" />
+                <span asp-validation-for="prop1" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-3">
+                <label asp-for="prop2" class="col-form-label">項目2</label>
+            </div>
+            <div class="col-sm-4">
+                <input asp-for="prop2" type="text" class="form-control" />
+                <span asp-validation-for="prop2" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-3">
+                <label asp-for="prop3" class="col-form-label">項目3</label>
+            </div>
+            <div class="col-sm-4">
+                <input asp-for="prop3" type="text" class="form-control" />
+                <span asp-validation-for="prop3" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-3">
+                <label asp-for="prop4[0].child" class="col-form-label">配列[0]</label>
+            </div>
+            <div class="col-sm-4">
+                <input asp-for="prop4[0].child" type="text" class="form-control" />
+                <span asp-validation-for="prop4[0].child" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-3">
+                <label asp-for="prop4[1].child" class="col-form-label">配列[1]</label>
+            </div>
+            <div class="col-sm-4">
+                <input asp-for="prop4[1].child" type="text" class="form-control" />
+                <span asp-validation-for="prop4[1].child" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-3">
+                <label asp-for="prop5.in1" class="col-form-label">子項目1</label>
+            </div>
+            <div class="col-sm-4">
+                <input asp-for="prop5.in1" type="text" class="form-control" />
+                <span asp-validation-for="prop5.in1" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-3">
+                <label asp-for="prop5.in2_val" class="col-form-label">子項目2</label>
+            </div>
+            <div class="col-sm-4">
+                <input asp-for="prop5.in2_val" type="text" class="form-control" />
+                <span asp-validation-for="prop5.in2_val" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-3">
+                <label asp-for="prop5.in3" class="col-form-label">子項目3</label>
+            </div>
+            <div class="col-sm-4">
+                <input asp-for="prop5.in3" type="text" class="form-control" />
+                <span asp-validation-for="prop5.in3" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-12">
+                <button type="submit" class="btn btn-primary">登録</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+@section HeadOptions {
+    <style type="text/css">
+        ul.error-link li a {
+            color: #dc3545 !important; /* from .text-danger */
+        }
+    </style>
+}
+
+@section Scripts {
+    @*
+        // クライアント側入力検証
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    *@
+
+<script>
+    function jump(id) {
+
+        if (!id) return false;
+
+        const adjust = 0;
+        const speed = 400;
+        var target = $("#" + id);
+        if (target.length > 0) {
+            var position = target.offset().top + adjust;
+            $('body,html').animate({ scrollTop: position }, speed, 'swing');
+            target.focus();
+        }
+        return false;
+    }
+</script>
+}
