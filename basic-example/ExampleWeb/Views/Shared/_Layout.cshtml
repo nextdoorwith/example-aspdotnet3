@@ -12,21 +12,25 @@
     <div id="wrapper">
 
         <!-- サイドバーメニュー -->
-        <nav id="sidebar" class="bg-dark text-light">
-            <div class="sidebar-header">
-                <h3>サンプル</h3>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="/">ExampleWeb</a>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            入力検証関連
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a asp-controller="ValidateBasic" asp-action="Index" class="dropdown-item">入力検証</a>
+                            <a asp-controller="ValidateMany" asp-action="Index" class="dropdown-item">入力検証(多数項目)</a>
+                            <a asp-controller="ValidateSummary" asp-action="Index" class="dropdown-item">カスタムエラーメッセージ一覧</a>
+                            <a asp-controller="Upload" asp-action="Index" class="dropdown-item">アップロード</a>
+                        </div>
+                    </li>
+                </ul>
             </div>
-            <ul class="list-unstyled">
-                <li class="active">
-                    <p>基本</p>
-                    <ul class="list-unstyled" id="homeSubmenu">
-                        <li><a asp-controller="ValidateBasic" asp-action="Index" class="text-light">入力検証</a></li>
-                        <li><a asp-controller="ValidateMany" asp-action="Index" class="text-light">入力検証</a></li>
-                        <li><a asp-controller="ValidateSummary" asp-action="Index" class="text-light">入力検証(入れ子)</a></li>
-                        <li><a asp-controller="Upload" asp-action="Index" class="text-light">アップロード</a></li>
-                    </ul>
-                </li>
-            </ul>
+
         </nav>
 
         <!-- コンテンツ -->
@@ -37,7 +41,6 @@
         </div>
 
     </div>
-
 
     <!-- enable fundamentals -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

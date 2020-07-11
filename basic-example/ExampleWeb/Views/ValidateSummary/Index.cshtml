@@ -113,19 +113,5 @@
     *@
 
 <script>
-    function jump(id) {
-
-        if (!id) return false;
-
-        const adjust = 0;
-        const speed = 400;
-        var target = $("#" + id);
-        if (target.length > 0) {
-            var position = target.offset().top + adjust;
-            $('body,html').animate({ scrollTop: position }, speed, 'swing');
-            target.focus();
-        }
-        return false;
-    }
 </script>
 }

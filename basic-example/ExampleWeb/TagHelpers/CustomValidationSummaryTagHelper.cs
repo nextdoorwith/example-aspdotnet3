@@ -82,14 +82,14 @@ namespace ExampleWeb.TagHelpers
                     //htmlMessage.InnerHtml.AppendHtmlLine($"<b>{name}</b>: {msg}");
 
                     // 例3: 要素を独自に構築
-                    // ex. <li>[someprop]: <a href="..." onclick="...">メッセージ</a></li>
+                    // ex. <li>[someprop]: <a href="#name">メッセージ</a></li>
                     htmlMessage.InnerHtml.Append($"{name}: ");
                     if( !string.IsNullOrEmpty(name))
                     {
                         var htmlLink = new TagBuilder("a");
                         htmlLink.InnerHtml.Append(msg);
-                        htmlLink.Attributes.Add("href", $"javascript: void(0);");
-                        htmlLink.Attributes.Add("onclick", $"jump('{name}');");
+                        htmlLink.Attributes.Add("href", $"#{name}");
+                        htmlLink.AddCssClass("validation-error-link");
                         htmlMessage.InnerHtml.AppendHtml(htmlLink);
                     }
                     else
