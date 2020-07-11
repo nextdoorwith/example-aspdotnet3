@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace HttpClientTest.Controllers
+namespace HttpClientExample.Controllers
 {
     [Route("api/[controller]")]
     public class SampleApiController : Controller

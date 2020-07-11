@@ -1,6 +1,6 @@
 using System;
 
-namespace HttpClientTest.Models
+namespace HttpClientExample.Models
 {
     public class ErrorViewModel
     {

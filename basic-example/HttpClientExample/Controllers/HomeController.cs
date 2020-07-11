@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using HttpClientTest.Models;
+using HttpClientExample.Models;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text.Json;
@@ -15,7 +15,7 @@ using System.Web;
 using System.Net;
 using Microsoft.AspNetCore.WebUtilities;
 
-namespace HttpClientTest.Controllers
+namespace HttpClientExample.Controllers
 {
     public class HomeController : Controller
     {
@@ -48,7 +48,7 @@ namespace HttpClientTest.Controllers
             HttpResponseMessage response = await client.GetAsync("/api/SampleApi");
             if (!response.IsSuccessStatusCode)
             {
-                return Json(false);
+                return Content($"failed: StatusCode={response.StatusCode}");
             }
 
             // 応答データの取得
@@ -73,7 +73,7 @@ namespace HttpClientTest.Controllers
             HttpResponseMessage response = await client.SendAsync(request);
             if (!response.IsSuccessStatusCode)
             {
-                return Json(false);
+                return Content($"failed: StatusCode={response.StatusCode}");
             }
 
             // 応答データの取得
@@ -96,7 +96,7 @@ namespace HttpClientTest.Controllers
             HttpResponseMessage response = await client.PostAsync("/api/SampleApi/post-json", content);
             if (!response.IsSuccessStatusCode)
             {
-                return Json(false);
+                return Content($"failed: StatusCode={response.StatusCode}");
             }
 
             // 応答データの取得
@@ -124,7 +124,7 @@ namespace HttpClientTest.Controllers
             _logger.LogDebug($"Response Code: \n{response.StatusCode}");
             if (!response.IsSuccessStatusCode)
             {
-                return Json(false);
+                return Content($"failed: StatusCode={response.StatusCode}");
             }
 
             // 応答データの取得
@@ -162,14 +162,14 @@ namespace HttpClientTest.Controllers
             dic.Add("key1", "value1");
             dic.Add("key2", "value2");
             client.PostAsync(POST_ONLY_URI, new FormUrlEncodedContent(dic));
-            
+
             _logger.LogDebug("Post(MultipartFormDataContent):");
             var multipart = new MultipartFormDataContent();
             multipart.Add(new StringContent("test1"), "part1");
             multipart.Add(new ByteArrayContent(bytes), "part2");
             client.PostAsync(POST_ONLY_URI, multipart);
 
-            return Ok("done!");
+            return Ok("ok!");
         }
 
         public async Task<IActionResult> DoGetWithQuery()
@@ -181,12 +181,12 @@ namespace HttpClientTest.Controllers
 
             HttpClient client = _factory.CreateClient("basic");
             HttpResponseMessage response = await client.GetAsync(uri);
-            if( response.IsSuccessStatusCode)
+            if (!response.IsSuccessStatusCode)
             {
-                // ...
+                return Content($"failed: StatusCode={response.StatusCode}");
             }
 
-            return Ok("done!");
+            return Ok("ok!");
         }
 
         public async Task<IActionResult> DoGetWithHeader()
@@ -198,12 +198,12 @@ namespace HttpClientTest.Controllers
             // HTTP要求の送信
             HttpClient client = _factory.CreateClient("basic");
             HttpResponseMessage response = await client.SendAsync(request);
-            if (response.IsSuccessStatusCode)
+            if (!response.IsSuccessStatusCode)
             {
-                // ...
+                return Content($"failed: StatusCode={response.StatusCode}");
             }
 
-            return Ok("done!");
+            return Ok("ok!");
         }
 
 
@@ -215,11 +215,11 @@ namespace HttpClientTest.Controllers
             var content = new FormUrlEncodedContent(values);
 
             HttpClient client = _factory.CreateClient("basic");
-            HttpResponseMessage response = 
+            HttpResponseMessage response =
                 await client.PostAsync("/api/SampleApi/post-only", content);
-            if (response.IsSuccessStatusCode)
+            if (!response.IsSuccessStatusCode)
             {
-                // ...
+                return Content($"failed: StatusCode={response.StatusCode}");
             }
 
             return Ok("ok!");
@@ -228,7 +228,7 @@ namespace HttpClientTest.Controllers
         public async Task<IActionResult> DoPostAsMultipart()
         {
             // サンプルとして添付するストリーム
-            var bin = new byte[] {1, 2, 3, 4, 5, 6, 7, 8};
+            var bin = new byte[] { 1, 2, 3, 4, 5, 6, 7, 8 };
             var stream = new MemoryStream(bin);
 
             var content = new MultipartFormDataContent();
@@ -241,7 +241,7 @@ namespace HttpClientTest.Controllers
 
             // マルチパート: arg3
             var streamContent = new StreamContent(stream);
-            streamContent.Headers.ContentType = 
+            streamContent.Headers.ContentType =
                 new MediaTypeHeaderValue("application/octet-stream");
             streamContent.Headers.ContentDisposition =
                 new ContentDispositionHeaderValue("attachment")
@@ -254,9 +254,9 @@ namespace HttpClientTest.Controllers
             HttpClient client = _factory.CreateClient("basic");
             HttpResponseMessage response =
                 await client.PostAsync("/api/SampleApi/post-only", content);
-            if (response.IsSuccessStatusCode)
+            if (!response.IsSuccessStatusCode)
             {
-                // ...
+                return Content($"failed: StatusCode={response.StatusCode}");
             }
 
             return Ok("ok!");
@@ -268,7 +268,7 @@ namespace HttpClientTest.Controllers
             HttpResponseMessage response = await client.GetAsync("http://www.yahoo.co.jp");
             if (response.IsSuccessStatusCode)
             {
-                // ...
+                return Content($"failed: StatusCode={response.StatusCode}");
             }
 
             string recv = await response.Content.ReadAsStringAsync();
@@ -277,8 +277,32 @@ namespace HttpClientTest.Controllers
 
         public async Task<IActionResult> DoBypassSSLValidation()
         {
-            var request = new HttpRequestMessage(
-                HttpMethod.Get, "https://localserver:44399/api/SampleApi");
+            // SSLエラーとなるサンプルAPIとして本アプリのSampleApiControllerを
+            // 次のURLで公開する想定です。
+            //
+            //     https://localserver:44398/
+            // 
+            // これを実現するために次の２つの設定が必要です。
+            // ※">"は表記の都合で記載しているのみで編集や実行に含めないでください。
+            // ※使用するポート番号は環境に応じて適宜変更してください。
+            //
+            // 1) ブラウザから当該ホスト名・ポートでアクセスできるようにする。
+            //    管理者権限でC:\Windows\System32\drivers\etc\hostsを開き、次の追加する。
+            //    > 127.0.0.1	localserver
+            // 2) IISで当該ホスト名・ポートで公開する。
+            //    .\.vs\HttpClientExample\config\applicationhost.configを次のように編集する。
+            //    > <bindings>
+            //    >   < binding protocol = "http" bindingInformation = "*:55595:localhost" />
+            //    >   < binding protocol = "https" bindingInformation = "*:44399:localhost" />
+            //    >   < binding protocol = "https" bindingInformation = "*:44398:localserver" />  ←追加
+            //    > </ bindings >
+            // 3) 当該ホスト名・ポート番号を使用するための許可を追加する。
+            //    管理者権限のコマンドプロンプトかPowerShellを起動し、次を実行する。
+            //    > netsh http add urlacl url=https://localserver:44398/ user=Everyone
+            //
+            string url = "https://localserver:44398/api/SampleApi";
+
+            var request = new HttpRequestMessage(HttpMethod.Get, url);
             request.Headers.Accept.Clear();
             request.Headers.Accept.Add(
                 new MediaTypeWithQualityHeaderValue(MIME_APP_JSON));
@@ -287,7 +311,7 @@ namespace HttpClientTest.Controllers
             HttpResponseMessage response = await client.SendAsync(request);
             if (!response.IsSuccessStatusCode)
             {
-                return Json(false);
+                return Content($"failed: StatusCode={response.StatusCode}");
             }
 
             string recvJson = await response.Content.ReadAsStringAsync();
