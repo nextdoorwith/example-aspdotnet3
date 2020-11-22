@@ -1,0 +1,25 @@
+﻿@model ReverseProxyExample.Models.Home.HomeViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="">ランタイムで認識したHTTPヘッダ数: @Model.Headers.Count</div>
+<div class="">
+    <style type="text/css" scoped>
+        table td span {
+            word-break: break-all;
+        }
+    </style>
+    <table class="table">
+        <thead>
+            <tr><th width="30%">HTTPヘッダ</th><th width="70%">値</th></tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Headers.Keys)
+            {
+                <tr><td><span>@item</span></td><td><span>@Model.Headers[item]</span></td></tr>
+            }
+        </tbody>
+    </table>
+</div>
