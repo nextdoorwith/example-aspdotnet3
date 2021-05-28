@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style scoped>
+    div.test div span {
+        color: blue;
+        font-weight: bold;
+    }
+</style>
+
+<form asp-action="Index">
+
+    <div class="row">
+        <div class="col-md-12 test">
+            <div class="form-group form-check">
+                <input id="checkbox1" type="checkbox" class="form-check-input" checked>
+                <label class="form-check-label" for="checkbox1">チェックボックス</label>
+            </div>
+            <div>$(xxx).attr('checked'): <span id="attr_val" /></div>
+            <div>Eement.checked: <span id="checked_val" /></div>
+            <div>$(xxx).prop('checked'): <span id="prop_val" /></div>
+            <div>$(xxx).is(':checked'): <span id="is_val" /></div>
+        </div>
+    </div>
+
+</form>
+
+
+@section Scripts {
+    <script>
+
+        $(function () {
+
+            $('#checkbox1').change(function (e) {
+                const target = e.currentTarget;
+                const $target = $(target);
+                $('#attr_val').text($target.attr('checked'));
+                $('#checked_val').text(target.checked);
+                $('#prop_val').text($target.prop('checked'));
+                $('#is_val').text($target.is(':checked'));
+            })
+            .change(); // 初期表示のための実行
+        });
+
+    </script>
+}
+

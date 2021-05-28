@@ -28,6 +28,14 @@
                             <a asp-controller="Upload" asp-action="Index" class="dropdown-item">アップロード</a>
                         </div>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            HTML/CSS/JS
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a asp-controller="CheckboxExample" asp-action="Index" class="dropdown-item">チェックボックス</a>
+                        </div>
+                    </li>
                 </ul>
             </div>
 
@@ -35,7 +43,7 @@
 
         <!-- コンテンツ -->
         <div id="main" class="container-fluid">
-            <main role="main" class=" pb-3">
+            <main role="main" class="my-3">
                 @RenderBody()
             </main>
         </div>
