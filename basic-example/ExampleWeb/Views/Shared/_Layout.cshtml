@@ -26,6 +26,7 @@
                             <a asp-controller="ValidateMany" asp-action="Index" class="dropdown-item">入力検証(多数項目)</a>
                             <a asp-controller="ValidateSummary" asp-action="Index" class="dropdown-item">カスタムエラーメッセージ一覧</a>
                             <a asp-controller="Upload" asp-action="Index" class="dropdown-item">アップロード</a>
+                            <a asp-controller="TagHelperExample" asp-action="Index" class="dropdown-item">タグヘルパー</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -54,9 +55,13 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!-- クライアント側入力検証を有効化 -->
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+
     <!-- site local -->
     <script src="~/js/site.js" asp-append-version="true"></script>
 
+    <!-- ページ個別指定 -->
     @RenderSection("Scripts", required: false)
 
 </body>

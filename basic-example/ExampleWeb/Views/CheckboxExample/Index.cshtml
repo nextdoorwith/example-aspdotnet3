@@ -15,7 +15,7 @@
     <div class="row">
         <div class="col-md-12 test">
             <div class="form-group form-check">
-                <input id="checkbox1" type="checkbox" class="form-check-input" checked>
+                <input id="checkbox1" type="checkbox" class="form-check-input">
                 <label class="form-check-label" for="checkbox1">チェックボックス</label>
             </div>
             <div>$(xxx).attr('checked'): <span id="attr_val" /></div>
@@ -36,6 +36,7 @@
             $('#checkbox1').change(function (e) {
                 const target = e.currentTarget;
                 const $target = $(target);
+                var a = $target.attr('checked');
                 $('#attr_val').text($target.attr('checked'));
                 $('#checked_val').text(target.checked);
                 $('#prop_val').text($target.prop('checked'));

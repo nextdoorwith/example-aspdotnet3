@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@model TagHelperExampleModel
+
+<h1>タグヘルパーテスト</h1>
+
+<p class="my-5" />
+
+<div class="card">
+    <div class="card-header alert alert-info">基本例</div>
+    <div class="card-body">
+        <form asp-action="Index">
+            <div class="form-group row">
+                <label asp-for="Text1" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="Text1" example="test" type="text" class="form-control">
+                    <span asp-validation-for="Text1" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Text2" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="Text2" type="text" class="form-control">
+                    <span asp-validation-for="Text2" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- 表示できないタグヘルパー -->
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">BasicTagHelper</label>
+                <div class="col-sm-9">
+                    <div class="d-none">TagHelper開始</div>
+                    <div basic class="form-control">コンテンツ</div>
+                    <div class="d-none">TagHelper終了</div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">TagBuilderExampleTagHelper</label>
+                <div class="col-sm-9">
+                    <div class="d-none">TagHelper開始</div>
+                    <div tag-builder-example class="form-control"></div>
+                    <div class="d-none">TagHelper終了</div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">TagHelperOutputExampleTagHelper</label>
+                <div class="col-sm-9">
+                    <div class="d-none">TagHelper開始</div>
+                    <div tag-helper-output-example
+                         class="form-control delete-class"
+                         delete-attr="delete"
+                         set-attr4="old4"
+                         add-attr4="old4"
+                         copy-attr4="old4"></div>
+                    <div class="d-none">TagHelper終了</div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">TagHelperContentExampleTagHelper</label>
+                <div class="col-sm-9">
+                    <div class="d-none">TagHelper開始</div>
+                    <div tag-helper-content-example class="form-control"></div>
+                    <div class="d-none">TagHelper終了</div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">TagHelperNestedExampleTagHelper</label>
+                <div class="col-sm-9">
+                    <div class="d-none">TagHelper開始</div>
+                    <div tag-helper-nested-example class="form-control"></div>
+                    <div class="d-none">TagHelper終了</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input class="btn btn-primary" type="submit" value="登録" />
+            </div>
+        </form>
+    </div>
+</div>
